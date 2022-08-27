@@ -17,6 +17,7 @@
 \alias{conn_write.processx_connection}
 \alias{processx_conn_write}
 \alias{conn_create_file}
+\alias{conn_set_stdin}
 \alias{conn_set_stdout}
 \alias{conn_set_stderr}
 \alias{conn_get_fileno}
@@ -57,6 +58,8 @@ conn_write(con, str, sep = "\\n", encoding = "")
 processx_conn_write(con, str, sep = "\\n", encoding = "")
 
 conn_create_file(filename, read = NULL, write = NULL)
+
+conn_set_stdin(con, drop = TRUE)
 
 conn_set_stdout(con, drop = TRUE)
 
@@ -141,6 +144,9 @@ case it returns the leftover bytes in a raw vector. Call \code{conn_write()}
 again with this raw vector.
 
 \code{conn_create_file()} creates a connection to a file.
+
+\code{conn_set_stdin()} set the standard input of the R process, to the
+specified connection.
 
 \code{conn_set_stdout()} set the standard output of the R process, to the
 specified connection.

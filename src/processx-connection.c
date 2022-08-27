@@ -664,6 +664,10 @@ SEXP processx__connection_set_std(SEXP con, int which, int drop) {
   return result;
 }
 
+SEXP processx_connection_set_stdin(SEXP con, SEXP drop) {
+  return processx__connection_set_std(con, 0, LOGICAL(drop)[0]);
+}
+
 SEXP processx_connection_set_stdout(SEXP con, SEXP drop) {
   return processx__connection_set_std(con, 1, LOGICAL(drop)[0]);
 }

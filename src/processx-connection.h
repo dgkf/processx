@@ -180,6 +180,8 @@ SEXP processx_connection_poll(SEXP pollables, SEXP timeout);
 /* Functions for connection inheritance */
 SEXP processx_connection_create_pipepair();
 
+SEXP processx_connection_set_stdin(SEXP con, SEXP drop);
+
 SEXP processx_connection_set_stdout(SEXP con, SEXP drop);
 
 SEXP processx_connection_set_stderr(SEXP con, SEXP drop);

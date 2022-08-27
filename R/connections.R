@@ -396,11 +396,28 @@ conn_create_file <- function(filename, read = NULL, write = NULL) {
 }
 
 #' @details
-#' `conn_set_stdout()` set the standard output of the R process, to the
+#' `conn_set_stdin()` set the standard input of the R process, to the
 #' specified connection.
 #'
 #' @param drop Whether to close the original stdout/stderr, or keep it
 #' open and return a connection to it.
+#'
+#' @rdname processx_connections
+#' @export
+
+conn_set_stdin <- function(con, drop = TRUE) {
+  assert_that(
+    is_connection(con),
+    is_flag(drop))
+
+  flush(stdin())
+  invisible(chain_call(c_processx_connection_set_stdin, con, drop))
+}
+
+
+#' @details
+#' `conn_set_stdout()` set the standard output of the R process, to the
+#' specified connection.
 #'
 #' @rdname processx_connections
 #' @export
